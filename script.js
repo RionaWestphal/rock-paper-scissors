@@ -43,3 +43,36 @@ function playRound(playerSelection, computerSelection) {
             }
     }
 }
+
+function game() {
+    let player = 0
+    let cpu = 0
+    let result = ""
+    for(let i = 0; i < 5; i++) {
+        let playerInput = prompt("Rock, paper, or scissors?");
+        cpuChoice = getComputerChoice();
+        result = playRound(playerInput, cpuChoice);
+        if(result.includes("win!")) {
+            console.log(`You win! Your opponent chose ${cpuChoice}`);
+            player++;
+        }
+        else if(result.includes("lose!")) {
+            console.log(`You lose! Your opponent chose ${cpuChoice}`);
+            cpu++;
+        }
+        else {
+            console.log(`You tied! Your opponent also chose ${cpuChoice}`);
+        }
+    }
+    if(player > cpu) {
+        console.log("You win!");
+    }
+    else if(cpu > player) {
+        console.log("You lose!");
+    }
+    else {
+        console.log("You tied!");
+    }
+}
+
+game() 
