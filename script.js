@@ -1,3 +1,8 @@
+const playerOptions = document.querySelectorAll('.playerOptions button');
+playerOptions.forEach(button => button.addEventListener('click', getPlayerChoice));
+const result = document.querySelector('.results');
+const currentResult = document.createElement('div');
+
 function getComputerChoice() {
     rand = Math.floor(Math.random() * 3);
     if (rand == 0) {
@@ -17,49 +22,47 @@ function playRound(playerSelection) {
         case "rock":
             switch (computerSelection) {
                 case "rock":
-                    console.log("Tie! Both chose rock.");
+                    currentResult.textContent="Tie! Both chose rock.";
                     break;
                 case "paper":
-                    console.log("You lose! Paper beats rock.");
+                    currentResult.textContent="You lose! Paper beats rock.";
                     break;
                 case "scissors":
-                    console.log("You win! Rock beats scissors.");
+                    currentResult.textContent="You win! Rock beats scissors.";
                     break;
             }
             break;
         case "paper":
             switch (computerSelection) {
                 case "rock":
-                    console.log("You win! Paper beats rock.");
+                    currentResult.textContent="You win! Paper beats rock.";
                     break;
                 case "paper":
-                    console.log("Tie! Both chose paper.");
+                    currentResult.textContent="Tie! Both chose paper.";
                     break;
                 case "scissors":
-                    console.log("You lose! Scissors beats paper.");
+                    currentResult.textContent="You lose! Scissors beats paper.";
                     break;
             }
             break;
         case "scissors":
             switch (computerSelection) {
                 case "rock":
-                    console.log("You lose! Rock beats scissors.");
+                    currentResult.textContent="You lose! Rock beats scissors.";
                     break;
                 case "paper":
-                    console.log("You win! Scissors beats paper");
+                    currentResult.textContent="You win! Scissors beats paper";
                     break;
                 case "scissors":
-                    console.log("Tie! Both chose scissors");
+                    currentResult.textContent="Tie! Both chose scissors";
                     break;
             }
             break;
     }
+    result.appendChild(currentResult);
 }
 
 function getPlayerChoice(e) {
     let playerChoice = e.target.id;
     playRound(playerChoice);
 }
-
-const playerOptions = document.querySelectorAll('.playerOptions button');
-playerOptions.forEach(button => button.addEventListener('click', getPlayerChoice));
