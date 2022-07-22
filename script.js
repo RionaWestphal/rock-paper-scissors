@@ -6,6 +6,7 @@ const runningScore = document.createElement('p');
 let playerScore = 0;
 let cpuScore = 0;
 const finalWinner = document.createElement('p');
+finalWinner.style.cssText='font-size:50px;font-weight:bold;color:#023020';
 let gameOver = false;
 
 function getComputerChoice() {
